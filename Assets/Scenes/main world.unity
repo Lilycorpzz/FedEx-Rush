@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -136,9 +136,10 @@ GameObject:
   - component: {fileID: 187269418}
   - component: {fileID: 187269417}
   - component: {fileID: 187269421}
+  - component: {fileID: 187269422}
   m_Layer: 0
   m_Name: House
-  m_TagString: Untagged
+  m_TagString: DeliveryPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -214,7 +215,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 187269416}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40, y: 6, z: 69}
+  m_LocalPosition: {x: 30.5, y: 6, z: 69}
   m_LocalScale: {x: 11.480871, y: 11.480871, z: 11.480871}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -237,6 +238,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &187269422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187269416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81021395e7b9998419ad95f0beecb973, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &272175307
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -254,7 +267,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 33632f177cfe0ec40900197242d933a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.85
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 33632f177cfe0ec40900197242d933a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -298,6 +311,50 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 72a2d8d0457c7ff418c13340881ddc2f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33632f177cfe0ec40900197242d933a8, type: 3}
+--- !u!1 &632499531
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 632499533}
+  - component: {fileID: 632499532}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &632499532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 632499531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16672def780c93148a04a454d9331654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &632499533
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 632499531}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 142.8, y: 7.847698, z: 102.9468}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1124122332 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 33632f177cfe0ec40900197242d933a8, type: 3}
@@ -315,7 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f88042bccec17f3458f7513b6de7defd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 50
+  forwardSpeed: 15
   strafeSpeed: 30
   rotationSpeed: 100
 --- !u!54 &1124122335
@@ -555,6 +612,7 @@ GameObject:
   - component: {fileID: 1974670534}
   - component: {fileID: 1974670533}
   - component: {fileID: 1974670532}
+  - component: {fileID: 1974670535}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -628,3 +686,15 @@ Transform:
   m_Father: {fileID: 1124122337}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 82.906, y: 0, z: 0}
+--- !u!114 &1974670535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974670531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81021395e7b9998419ad95f0beecb973, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
