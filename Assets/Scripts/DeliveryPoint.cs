@@ -9,6 +9,7 @@ public class DeliveryPoint : MonoBehaviour
     private float deliveryTime = 0f;
     public Color deliveredColor = Color.green; // Color to indicate delivery
     private Renderer renderer;
+    public GameObject FloatingTextPrefab;
 
     private void Start()
     {
@@ -27,6 +28,7 @@ public class DeliveryPoint : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             CheckForDelivery();
+
         }
     }
 
@@ -40,8 +42,16 @@ public class DeliveryPoint : MonoBehaviour
             if (hit.collider.CompareTag("DeliveryPoint") && !isDelivered)
             {
                 DeliverPackage();
+
+                ShowFloatingText();
             }
         }
+        if (FloatingTextPrefab)
+        {
+            ShowFloatingText();
+        }
+
+
     }
 
     private void DeliverPackage()
@@ -61,6 +71,13 @@ public class DeliveryPoint : MonoBehaviour
 
         // Optionally, trigger an effect or sound here
         Debug.Log("Package Delivered! Points awarded: " + points + " at time: " + deliveryTime);
+
+        
+    }
+
+    void ShowFloatingText()
+    {
+        Instantiate(FloatingTextPrefab, transform.position, Quaternion.identity, transform);
     }
 
     public void ResetDelivery()
