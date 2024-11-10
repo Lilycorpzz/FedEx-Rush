@@ -5,7 +5,7 @@ using UnityEngine;
 public class DeliveryPoint : MonoBehaviour
 {
     public int points = 5; // Points awarded for a successful delivery
-    private bool isDelivered = false;
+    private bool isDelivered = false; // Track if this point has been delivered
     private float deliveryTime = 0f;
     public Color deliveredColor = Color.green; // Color to indicate delivery
     private Renderer renderer;
@@ -22,36 +22,13 @@ public class DeliveryPoint : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void OnMouseDown()
     {
-        // Detect if the player clicks the left mouse button
-        if (Input.GetMouseButtonDown(0))
+        // This method is called when this specific GameObject is clicked
+        if (!isDelivered)
         {
-            CheckForDelivery();
-
+            DeliverPackage();
         }
-    }
-
-    private void CheckForDelivery()
-    {
-        // Raycast from the camera to detect the clicked object
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hit))
-        {
-            // Check if the clicked object has the "DeliveryPoint" tag
-            if (hit.collider.CompareTag("DeliveryPoint") && !isDelivered)
-            {
-                DeliverPackage();
-
-                ShowFloatingText();
-            }
-        }
-        if (FloatingTextPrefab)
-        {
-            ShowFloatingText();
-        }
-
-
     }
 
     private void DeliverPackage()
@@ -72,12 +49,16 @@ public class DeliveryPoint : MonoBehaviour
         // Optionally, trigger an effect or sound here
         Debug.Log("Package Delivered! Points awarded: " + points + " at time: " + deliveryTime);
 
-        
+        // Show floating text, if prefab is set
+        ShowFloatingText();
     }
 
-    void ShowFloatingText()
+    private void ShowFloatingText()
     {
-        Instantiate(FloatingTextPrefab, transform.position, Quaternion.identity, transform);
+        if (FloatingTextPrefab)
+        {
+            Instantiate(FloatingTextPrefab, transform.position, Quaternion.identity, transform);
+        }
     }
 
     public void ResetDelivery()
