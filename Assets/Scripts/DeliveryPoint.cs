@@ -9,7 +9,7 @@ public class DeliveryPoint : MonoBehaviour
     private bool isDelivered = false; // Track if this point has been delivered
     private float deliveryTime = 0f;
     public Color deliveredColor = Color.green; // Color to indicate delivery
-  //  private Renderer renderer;
+    private Renderer renderer;
     public GameObject FloatingTextPrefab;
     //public TMP_Text Score;
 
@@ -23,12 +23,12 @@ public class DeliveryPoint : MonoBehaviour
     private void Start()
     {
         // Get the Renderer component for visual feedback
-      //  renderer = GetComponent<Renderer>();
-       // if (renderer != null)
-       // {
+        renderer = GetComponent<Renderer>();
+        if (renderer != null)
+        {
             // Set initial color to indicate it's ready for delivery
-       //     renderer.material.color = Color.red;
-      //  }
+            renderer.material.color = Color.red;
+        }
     }
 
     private void OnMouseDown()
@@ -52,9 +52,9 @@ public class DeliveryPoint : MonoBehaviour
         deliveryTime = Time.time;
 
         // Change color to indicate delivery status
-        if (GetComponent<Renderer>() != null)
+        if (renderer != null)
         {
-            GetComponent<Renderer>().material.color = deliveredColor;
+            renderer.material.color = deliveredColor;
         }
 
         // Optionally, trigger an effect or sound here
@@ -80,9 +80,9 @@ public class DeliveryPoint : MonoBehaviour
         deliveryTime = 0f;
 
         // Reset color or appearance
-        if (GetComponent<Renderer>() != null)
+        if (renderer != null)
         {
-            GetComponent<Renderer>().material.color = Color.red; // Set back to initial color
+            renderer.material.color = Color.red; // Set back to initial color
         }
 
         Debug.Log("Delivery point has been reset.");
