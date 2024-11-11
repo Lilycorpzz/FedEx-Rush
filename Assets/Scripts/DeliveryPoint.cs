@@ -13,6 +13,13 @@ public class DeliveryPoint : MonoBehaviour
     public GameObject FloatingTextPrefab;
     public TMP_Text Score;
 
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     private void Start()
     {
         // Get the Renderer component for visual feedback
@@ -30,6 +37,8 @@ public class DeliveryPoint : MonoBehaviour
         if (!isDelivered)
         {
             DeliverPackage();
+
+            audioManager.PlaySFX(audioManager.pointSound);
         }
     }
 
