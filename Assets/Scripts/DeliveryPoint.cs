@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DeliveryPoint : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class DeliveryPoint : MonoBehaviour
     public Color deliveredColor = Color.green; // Color to indicate delivery
     private Renderer renderer;
     public GameObject FloatingTextPrefab;
+    public TMP_Text Score;
 
     private void Start()
     {
@@ -51,6 +53,7 @@ public class DeliveryPoint : MonoBehaviour
 
         // Show floating text, if prefab is set
         ShowFloatingText();
+        Score.text = "Score : " + points.ToString();
     }
 
     private void ShowFloatingText()
