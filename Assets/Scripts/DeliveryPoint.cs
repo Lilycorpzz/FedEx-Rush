@@ -11,7 +11,7 @@ public class DeliveryPoint : MonoBehaviour
     public Color deliveredColor = Color.green; // Color to indicate delivery
     private Renderer renderer;
     public GameObject FloatingTextPrefab;
-    public TMP_Text Score;
+    //public TMP_Text Score;
 
     AudioManager audioManager;
 
@@ -62,7 +62,7 @@ public class DeliveryPoint : MonoBehaviour
 
         // Show floating text, if prefab is set
         ShowFloatingText();
-        Score.text = "Score : " + points.ToString();
+        //Score.text = "Score : " + points.ToString();
     }
 
     private void ShowFloatingText()

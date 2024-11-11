@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; } // Singleton instance
 
     public int totalPoints { get; private set; } = 0; // Player’s total points
+    public TMP_Text Score;
 
     private void Awake()
     {
@@ -27,6 +29,7 @@ public class GameManager : MonoBehaviour
     {
         totalPoints += points;
         Debug.Log("Points added! Current Total: " + totalPoints);
+        Score.text = "Score : " + totalPoints.ToString();
     }
 
     // Optional: Method to reset points (e.g., at the start of a new game or level)
