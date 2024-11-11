@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     {
         totalPoints += points;
         Debug.Log("Points added! Current Total: " + totalPoints);
-        Score.text = "Score : " + totalPoints.ToString();
+        Score.text = totalPoints.ToString();
     }
 
     // Optional: Method to reset points (e.g., at the start of a new game or level)

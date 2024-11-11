@@ -62,7 +62,7 @@ public class DeliveryPoint : MonoBehaviour
 
         // Show floating text, if prefab is set
         ShowFloatingText();
-        //Score.text = "Score : " + points.ToString();
+        //Score.text = points.ToString();
     }
 
     private void ShowFloatingText()
